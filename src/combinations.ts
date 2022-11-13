@@ -1,12 +1,12 @@
-const stateToValue = (input: any[], state: number[]): any[] => {
+const stateToValue = <T>(input: T[], state: number[]): T[] => {
   return [...state.map(elementIndex => input[elementIndex])]
 }
 
-export const combinations = (input: any[], count: number): any[] => {
+export const combinations = <T>(input: T[], count: number): T[][] => {
   if (input.length < count) {
     return []
   }
-  const results = []
+  const results: T[][] = []
   const maxCursor = count - 1
   const state = []
   const finalState = []
@@ -24,12 +24,12 @@ export const combinations = (input: any[], count: number): any[] => {
   // start at the end
   let cursor = maxCursor
 
-  results.push(stateToValue(input, state))
+  results.push(stateToValue<T>(input, state))
 
   while (JSON.stringify(state) !== stringifiedFinalState) {
     if (state[cursor] !== finalState[cursor]) {
       state[cursor] += 1
-      results.push([...state])
+      results.push(stateToValue<T>(input, state))
     } else {
       while (state[cursor] === finalState[cursor]) {
         cursor -= 1
@@ -44,7 +44,7 @@ export const combinations = (input: any[], count: number): any[] => {
         state[i] = state[i - 1] + 1
       }
 
-      results.push(stateToValue(input, state))
+      results.push(stateToValue<T>(input, state))
 
       cursor = maxCursor
     }
@@ -52,3 +52,4 @@ export const combinations = (input: any[], count: number): any[] => {
 
   return results
 }
+
