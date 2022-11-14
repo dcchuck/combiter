@@ -33,5 +33,12 @@ describe('combinations', () => {
     assert(result.find(item => item.includes('a') && item.includes('c')))
     assert(result.find(item => item.includes('b') && item.includes('c')))
   })
+
+  it('create clones when using reference objects', () => {
+    const toMutate = [['a'], ['b'], ['c']]
+    const result = combinations<string[]>(toMutate, 1)
+    toMutate[0][0] = 'd'
+    assert(result.find(item => item[0][0] === 'a'))
+  })
 })
 
