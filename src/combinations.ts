@@ -25,7 +25,6 @@ export const combinations = <T>(input: T[], count: number): T[][] => {
   }
   // TODO generate the string, no need to make an array to do this
   const stringifiedFinalState = JSON.stringify(finalState)
-  console.log(stringifiedFinalState)
   // start at the end
   let cursor = maxCursor
 
