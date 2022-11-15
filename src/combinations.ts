@@ -1,8 +1,8 @@
 const stateToValue = <T>(input: T[], state: number[]): T[] => {
   // TODO is it faster to always parse/stringify? or check first
   return [
-    ...state.map((elementIndex) =>
-      JSON.parse(JSON.stringify(input[elementIndex]))
+    ...state.map(
+      (elementIndex) => JSON.parse(JSON.stringify(input[elementIndex])) as T
     ),
   ]
 }
