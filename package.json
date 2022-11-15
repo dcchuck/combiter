@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "test": "node --loader tsx --test --no-warnings **/*.test.ts",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",

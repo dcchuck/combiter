@@ -1,6 +1,10 @@
 const stateToValue = <T>(input: T[], state: number[]): T[] => {
   // TODO is it faster to always parse/stringify? or check first
-  return [...state.map(elementIndex => JSON.parse(JSON.stringify(input[elementIndex])))]
+  return [
+    ...state.map((elementIndex) =>
+      JSON.parse(JSON.stringify(input[elementIndex]))
+    ),
+  ]
 }
 
 export const combinations = <T>(input: T[], count: number): T[][] => {
@@ -35,7 +39,7 @@ export const combinations = <T>(input: T[], count: number): T[][] => {
       while (state[cursor] === finalState[cursor]) {
         cursor -= 1
         if (cursor < 0) {
-          throw Error('PANIC - state cursor out of bounds')
+          throw Error("PANIC - state cursor out of bounds")
         }
       }
 
