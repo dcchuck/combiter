@@ -1,11 +1,13 @@
 {
   "name": "combiter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Tools for combinatorics",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": ["dist/src/**"],
   "scripts": {
     "build": "tsc",
+    "deploy": "npm run lint && npm run build && npm publish",
     "test": "node --loader tsx --test --no-warnings **/*.test.ts",
     "lint": "eslint .",
     "prettier": "prettier --write ."
