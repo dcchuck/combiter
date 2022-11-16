@@ -1,6 +1,6 @@
 {
   "name": "combiter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tools for combinatorics",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
