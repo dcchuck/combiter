@@ -40,4 +40,18 @@ describe("combinations", () => {
     toMutate[0][0] = "d"
     assert(result.find((item) => item[0][0] === "a"))
   })
+
+  it("returns the results in the order described in the comments", () => {
+    // this is a gross test string but helps visualize the algorithm
+    // also, should this test break - delete the comment as the order is no longer the same
+    const example = ["a", "b", "c", "d", "e"]
+    const result = combinations<string>(example, 3)
+    // the first item will be "a", "b", "c"
+    assert(result[0].includes("a") && result[0].includes("b") && result[0].includes("c"))
+    // the 7th item will be "b", "c", "d"
+    assert(result[6].includes("b") && result[6].includes("c") && result[6].includes("d"))
+    // the last item will be "c", "d", "e"
+    const last = result.length - 1;
+    assert(result[last].includes("c") && result[last].includes("d") && result[last].includes("e"))
+  })
 })
